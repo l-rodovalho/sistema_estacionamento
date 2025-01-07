@@ -1,6 +1,8 @@
 package com.example.sistema_estacionamento
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,5 +24,11 @@ class CarsListActivity : AppCompatActivity() {
         )
 
         recyclerView.adapter = CarAdapter(carros)
+
+        val btnReturn = findViewById<ImageView>(R.id.btn_return)
+        btnReturn.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            }
     }
 }

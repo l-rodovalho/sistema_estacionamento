@@ -29,5 +29,11 @@ class MainActivity : AppCompatActivity() {
         //    val intent = Intent(this, CarsListActivity::class.java)
         //    startActivity(intent)
         //}
+
+        //val btnVagas = findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.btnVagas)
+        //btnVagas.setOnClickListener {
+        //    val intent = Intent(this, VagasListActivity::class.java)
+        //    startActivity(intent)
+        //}
     }
 }
