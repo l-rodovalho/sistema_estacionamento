@@ -1,10 +1,11 @@
 package com.example.sistema_estacionamento
 
 import okhttp3.Callback
+import okhttp3.FormBody
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 
 class API {
 
@@ -12,14 +13,16 @@ class API {
 
         val HOST = "http://themiranha.ddns.net:25565"
 
-        fun POST(json: String, calBack: Callback) {
+        fun POST(route: String, payload: String, calBack: Callback) {
+
             val client = OkHttpClient()
 
+
             val mediaType = "application/json".toMediaTypeOrNull()
-            val body = RequestBody.create(mediaType, json)
+            val body = payload.toRequestBody(mediaType)
 
             val request = Request.Builder()
-                .url(HOST)
+                .url(HOST + route)
                 .post(body)
                 .build()
 

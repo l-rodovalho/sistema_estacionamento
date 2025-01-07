@@ -1,11 +1,13 @@
-package com.example.sistema_estacionamento
+package com.example.sistema_estacionamento.views
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.sistema_estacionamento.R
 
-class HomeActivity : AppCompatActivity() {
+class HomeView : AppCompatActivity(){
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -15,5 +17,12 @@ class HomeActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        registerEvents()
     }
+
+    fun registerEvents() {
+
+    }
+
 }
