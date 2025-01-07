@@ -24,7 +24,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".CarsListActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".views.SignInView" />
+        <activity android:name=".views.HomeView" />
     </application>
 
 
