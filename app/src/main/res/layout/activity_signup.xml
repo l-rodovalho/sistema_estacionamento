@@ -9,14 +9,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/create_account_box"
             android:layout_width="0dp"
             android:layout_height="530dp"
-            android:layout_marginTop="100dp"
             android:layout_marginStart="24dp"
+            android:layout_marginTop="100dp"
             android:layout_marginEnd="24dp"
             android:layout_weight="0.5"
             android:background="@drawable/btn_background_1">
@@ -61,7 +63,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txt_name_new_account"
+                android:id="@+id/textinput_signup_name"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -76,7 +78,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txt_email_new_account"
+                android:id="@+id/textinput_signup_email"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +93,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txt_password_new_account"
+                android:id="@+id/textinput_signup_password"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -113,30 +115,30 @@
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/btn_login"
+                app:layout_constraintBottom_toTopOf="@+id/button_signup_submit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_password_new_account" />
+                app:layout_constraintTop_toBottomOf="@+id/textinput_signup_password" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/btn_login"
+                android:id="@+id/button_signup_submit"
                 android:layout_width="250dp"
                 android:layout_height="50dp"
+                android:layout_marginBottom="36dp"
                 android:layout_weight="0.5"
                 android:background="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginBottom="36dp">
+                app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
-                    android:id="@+id/btn_create_account"
+                    android:id="@+id/textview_signup_submit_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Criar conta"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

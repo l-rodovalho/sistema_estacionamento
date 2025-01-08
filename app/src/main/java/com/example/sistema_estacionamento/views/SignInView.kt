@@ -11,7 +11,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.sistema_estacionamento.MainActivity
 import com.example.sistema_estacionamento.R
 import com.example.sistema_estacionamento.controllers.SignInController
-import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.android.material.textview.MaterialTextView
 
@@ -33,7 +32,7 @@ class SignInView : AppCompatActivity() {
     }
 
     fun registerEvents() {
-        findViewById<ConstraintLayout>(R.id.btn_login)
+        findViewById<ConstraintLayout>(R.id.button_signup_submit)
             .setOnClickListener {
                 SignInController.handle(getEmail(), getPassword(), ::handleError, ::handleSuccess)
             }
@@ -58,8 +57,8 @@ class SignInView : AppCompatActivity() {
             apply()
         }
 
-        val homeIntent = Intent(MainActivity.instance, HomeView::class.java)
-        startActivity(homeIntent)
+        val loadingAuthenticationIntent = Intent(MainActivity.instance, LoadingAuthenticationView::class.java)
+        startActivity(loadingAuthenticationIntent)
 
     }
 
