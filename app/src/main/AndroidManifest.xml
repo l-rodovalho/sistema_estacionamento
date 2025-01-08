@@ -23,9 +23,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CarsListActivity" />
+        <activity android:name=".views.VehiclesView" />
         <activity android:name=".views.SignInView" />
         <activity android:name=".views.HomeView" />
+        <activity android:name=".views.SignUpView" />
+        <activity android:name=".views.LoadingAuthenticationView" />
     </application>
 
 

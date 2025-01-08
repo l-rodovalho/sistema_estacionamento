@@ -106,7 +106,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/btn_back_login"
+                android:id="@+id/btn_goTo_signIn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Já tenho conta"
@@ -130,7 +130,7 @@
                 android:layout_marginBottom="36dp">
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/btn_create_account"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Criar conta"

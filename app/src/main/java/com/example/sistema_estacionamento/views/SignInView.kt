@@ -13,6 +13,7 @@ import com.example.sistema_estacionamento.R
 import com.example.sistema_estacionamento.controllers.SignInController
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.google.android.material.textview.MaterialTextView
 
 class SignInView : AppCompatActivity() {
 
@@ -35,6 +36,12 @@ class SignInView : AppCompatActivity() {
         findViewById<ConstraintLayout>(R.id.btn_login)
             .setOnClickListener {
                 SignInController.handle(getEmail(), getPassword(), ::handleError, ::handleSuccess)
+            }
+        findViewById<MaterialTextView>(R.id.btn_goTo_signUp)
+            .setOnClickListener {
+                val signUpIntent = Intent(MainActivity.instance, SignUpView::class.java)
+
+                startActivity(signUpIntent)
             }
     }
 
