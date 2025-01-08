@@ -29,7 +29,7 @@ class API {
                 request = Request.Builder()
                     .url(HOST + route)
                     .post(body)
-                    .header("accessToken", "Bearer $accessToken")
+                    .header("authorization", "Bearer $accessToken")
                     .build()
             }
 
@@ -46,7 +46,7 @@ class API {
             if (accessToken != null) {
                 request = Request.Builder()
                     .url(HOST + route)
-                    .header("accessToken", "Bearer $accessToken")
+                    .header("authorization", "Bearer $accessToken")
                     .build()
             }
 

@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.sistema_estacionamento.models.UserModel
 import com.example.sistema_estacionamento.views.LoadingAuthenticationView
 import com.example.sistema_estacionamento.views.SignInView
 import com.example.sistema_estacionamento.views.VehiclesView
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         var instance: MainActivity? = null
+        var currentUser: UserModel? = null
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -2,6 +2,7 @@ package com.example.sistema_estacionamento.views
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
@@ -21,18 +22,24 @@ class HomeView : AppCompatActivity(){
             insets
         }
 
+        loadDynamicData()
+
         registerEvents()
     }
 
-    fun registerEvents() {
+    private fun loadDynamicData() {
+        findViewById<TextView>(R.id.textview_user_name).text = MainActivity.currentUser?.name
+    }
+
+    private fun registerEvents() {
         findViewById<ConstraintLayout>(R.id.btnVeiculos).setOnClickListener {handleGoToVehicles()}
         findViewById<ConstraintLayout>(R.id.btnVagas).setOnClickListener {handleGoToParks()}
     }
 
-    fun handleGoToParks() {
+    private fun handleGoToParks() {
     }
 
-    fun handleGoToVehicles() {
+    private fun handleGoToVehicles() {
         val vehiclesIntent = Intent(MainActivity.instance, VehiclesView::class.java)
         startActivity(vehiclesIntent)
     }
