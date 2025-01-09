@@ -10,7 +10,7 @@ class API {
 
     companion object {
 
-        val HOST = "http://10.10.100.220:25565"
+        val HOST = "http://themiranha.ddns.net:25565"
 
         fun POST(route: String, payload: String, calBack: Callback, accessToken: String?) {
 

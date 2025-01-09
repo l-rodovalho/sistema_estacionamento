@@ -36,7 +36,7 @@ class HomeView : AppCompatActivity(){
     private fun registerEvents() {
         findViewById<ConstraintLayout>(R.id.btnVeiculos).setOnClickListener {handleGoToVehicles()}
         findViewById<ConstraintLayout>(R.id.btnVagas).setOnClickListener {handleGoToParks()}
-        findViewById<AppCompatImageButton>(R.id.button_home_quit).setOnClickListener { handleQuit() }
+        // findViewById<AppCompatImageButton>(R.id.button_home_quit).setOnClickListener { handleQuit() }
     }
 
     private fun handleGoToParks() {
