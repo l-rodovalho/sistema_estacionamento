@@ -11,7 +11,7 @@ import com.example.sistema_estacionamento.models.VehicleModel
 class VehicleAdapter(private val vehicles: List<VehicleModel>): RecyclerView.Adapter<VehicleAdapter.VehicleViewHolder>() {
 
     class VehicleViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val plateTextView: TextView = itemView.findViewById(R.id.textview_vehicle_plate)
+        val plateTextView: TextView = itemView.findViewById(R.id.textview_park_name)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VehicleViewHolder {

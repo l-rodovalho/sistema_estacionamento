@@ -1,5 +1,6 @@
 package com.example.sistema_estacionamento.controllers
 
+import android.util.Log
 import com.example.sistema_estacionamento.utils.API
 import okhttp3.Call
 import okhttp3.Callback
@@ -33,9 +34,11 @@ class SignInController {
                             val accessToken = json.getString("accessToken");
                             handleSuccess(accessToken)
                         } else {
+                            Log.d("API", response as String)
                             handleError()
                         }
                     } else {
+                        Log.d("API", response as String)
                         handleError()
                     }
                 }

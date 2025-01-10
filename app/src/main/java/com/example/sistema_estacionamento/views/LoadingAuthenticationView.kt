@@ -40,7 +40,7 @@ class LoadingAuthenticationView : AppCompatActivity() {
         MainActivity.currentUser = user;
 
 
-        val homeIntent = Intent(MainActivity.instance, HomeView::class.java)
+        val homeIntent = Intent(MainActivity.instance, ParksView::class.java)
         startActivity(homeIntent)
     }
 

@@ -28,6 +28,7 @@
         <activity android:name=".views.HomeView" />
         <activity android:name=".views.SignUpView" />
         <activity android:name=".views.LoadingAuthenticationView" />
+        <activity android:name=".views.ParksView" />
     </application>
 
 

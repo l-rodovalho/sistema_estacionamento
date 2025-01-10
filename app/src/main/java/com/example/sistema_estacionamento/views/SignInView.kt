@@ -32,7 +32,7 @@ class SignInView : AppCompatActivity() {
     }
 
     fun registerEvents() {
-        findViewById<ConstraintLayout>(R.id.button_signup_submit)
+        findViewById<ConstraintLayout>(R.id.button_signin_submit)
             .setOnClickListener {
                 SignInController.handle(getEmail(), getPassword(), ::handleError, ::handleSuccess)
             }

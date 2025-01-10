@@ -7,7 +7,7 @@
     android:background="@drawable/list_background">
 
     <TextView
-        android:id="@+id/textview_vehicle_plate"
+        android:id="@+id/textview_park_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Placa carro"

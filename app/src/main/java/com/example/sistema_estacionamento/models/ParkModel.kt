@@ -8,7 +8,14 @@ class ParkModel {
             field = value
         }
 
-    constructor(name: String){
+    var id: String = ""
+        get() = field
+        set(value) {
+            field = value
+        }
+
+    constructor(id: String, name: String){
+        this.id = id;
         this.name = name;
     }
 }
