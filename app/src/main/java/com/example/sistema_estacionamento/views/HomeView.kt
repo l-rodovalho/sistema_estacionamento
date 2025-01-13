@@ -39,6 +39,8 @@ class HomeView : AppCompatActivity(){
     }
 
     private fun handleGoToParks() {
+        val parksIntent = Intent(MainActivity.instance, ParksView::class.java)
+        startActivity(parksIntent)
     }
 
     private fun handleGoToVehicles() {
