@@ -8,9 +8,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.sistema_estacionamento.models.UserModel
 import com.example.sistema_estacionamento.models.VehicleModel
-import com.example.sistema_estacionamento.views.LoadingAuthenticationView
-import com.example.sistema_estacionamento.views.SignInView
-import com.example.sistema_estacionamento.views.VehiclesView
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,7 +23,6 @@ class MainActivity : AppCompatActivity() {
 
         instance = this;
 
-        val intent = Intent(this, LoadingAuthenticationView::class.java)
-        startActivity(intent)
+        setContentView(R.layout.activity_main)
     }
 }
