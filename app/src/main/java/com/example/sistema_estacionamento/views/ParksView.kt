@@ -1,5 +1,6 @@
 package com.example.sistema_estacionamento.views
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -40,6 +41,18 @@ class ParksView : AppCompatActivity() {
 
     fun registerEvents() {
         findViewById<AppCompatImageView>(R.id.btn_navigation_vehicles).setOnClickListener {handleGoToVehicles()}
+        findViewById<ImageButton>(R.id.button_parks_quit).setOnClickListener {handleQuit()}
+    }
+
+    private fun handleQuit() {
+        val sharedPref = MainActivity.instance?.getPreferences(Context.MODE_PRIVATE) ?: return
+        with (sharedPref.edit()) {
+            remove("accessToken")
+        }
+        MainActivity.currentUser = null;
+
+        val signInIntent = Intent(MainActivity.instance, SignInView::class.java)
+        startActivity(signInIntent)
     }
 
     fun handleGoToVehicles() {
@@ -48,7 +61,6 @@ class ParksView : AppCompatActivity() {
     }
 
     fun loadParks() {
-
         ParkController.getParks(MainActivity.currentUser?.accessToken as String, ::handleErrorParks, ::handleSuccessParks);
     }
 

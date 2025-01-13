@@ -3,13 +3,17 @@ package com.example.sistema_estacionamento.views
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sistema_estacionamento.MainActivity
 import com.example.sistema_estacionamento.R
 import com.example.sistema_estacionamento.controllers.UserDataController
 import com.example.sistema_estacionamento.models.UserModel
+import com.example.sistema_estacionamento.models.VehicleModel
 
 class LoadingAuthenticationView : AppCompatActivity() {
 
@@ -36,16 +40,15 @@ class LoadingAuthenticationView : AppCompatActivity() {
         UserDataController.handle(accessToken, ::handleError, ::handleUserData)
     }
 
-    fun handleUserData(user: UserModel){
-        if (user == null) {
-            val signInIntent = Intent(MainActivity.instance, SignInView::class.java)
-            startActivity(signInIntent)
-            return;
-        }
+    fun handleUserData(user: UserModel, vechiles: List<VehicleModel>){
         MainActivity.currentUser = user;
+        MainActivity.vehicles = vechiles;
 
-        val homeIntent = Intent(MainActivity.instance, ParksView::class.java)
-        startActivity(homeIntent)
+        Handler(Looper.getMainLooper()).post {
+            val homeIntent = Intent(MainActivity.instance, ParksView::class.java)
+            startActivity(homeIntent)
+        }
+
     }
 
     fun handleError() {

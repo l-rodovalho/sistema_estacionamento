@@ -26,7 +26,7 @@ class VehiclesView : AppCompatActivity() {
 
         renderUserData();
 
-        loadVehicles()
+        renderVehicles()
 
         registerEvents()
     }
@@ -56,23 +56,11 @@ class VehiclesView : AppCompatActivity() {
         recyclerView.adapter = VehicleAdapter(emptyList());
     }
 
-    fun loadVehicles() {
-        // clearVehicles();
-        Log.d("TOKEN",MainActivity.currentUser?.accessToken as String);
-        VehicleController.getVehicles(MainActivity.currentUser?.accessToken as String, ::handleErrorVehicles, ::handleSuccessVehicles);
-    }
-
-    fun handleSuccessVehicles(vehicles: List<VehicleModel>) {
+    fun renderVehicles() {
+        clearVehicles();
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView);
         recyclerView.layoutManager = LinearLayoutManager(this);
-
-        recyclerView.adapter = VehicleAdapter(vehicles);
+        Log.d("VEHICLES", MainActivity.vehicles.toString());
+        recyclerView.adapter = VehicleAdapter(MainActivity.vehicles);
     }
-
-    fun handleErrorVehicles() {
-        Handler(Looper.getMainLooper()).post {
-            Toast.makeText(MainActivity.instance, "Ops... Ocorreu um erro", Toast.LENGTH_LONG).show();
-        }
-    }
-
 }
