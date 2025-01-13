@@ -2,6 +2,9 @@ package com.example.sistema_estacionamento.views
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.widget.TextView
 import android.widget.ImageView
 import android.widget.Toast
@@ -55,7 +58,7 @@ class VehiclesView : AppCompatActivity() {
 
     fun loadVehicles() {
         // clearVehicles();
-
+        Log.d("TOKEN",MainActivity.currentUser?.accessToken as String);
         VehicleController.getVehicles(MainActivity.currentUser?.accessToken as String, ::handleErrorVehicles, ::handleSuccessVehicles);
     }
 
@@ -67,7 +70,9 @@ class VehiclesView : AppCompatActivity() {
     }
 
     fun handleErrorVehicles() {
-        Toast.makeText(MainActivity.instance, "Ops... Ocorreu um erro", Toast.LENGTH_LONG).show();
+        Handler(Looper.getMainLooper()).post {
+            Toast.makeText(MainActivity.instance, "Ops... Ocorreu um erro", Toast.LENGTH_LONG).show();
+        }
     }
 
 }

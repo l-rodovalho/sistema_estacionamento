@@ -37,8 +37,12 @@ class LoadingAuthenticationView : AppCompatActivity() {
     }
 
     fun handleUserData(user: UserModel){
+        if (user == null) {
+            val signInIntent = Intent(MainActivity.instance, SignInView::class.java)
+            startActivity(signInIntent)
+            return;
+        }
         MainActivity.currentUser = user;
-
 
         val homeIntent = Intent(MainActivity.instance, ParksView::class.java)
         startActivity(homeIntent)

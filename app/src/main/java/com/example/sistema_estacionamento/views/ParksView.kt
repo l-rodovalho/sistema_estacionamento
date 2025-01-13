@@ -2,6 +2,8 @@ package com.example.sistema_estacionamento.views
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
@@ -31,7 +33,9 @@ class ParksView : AppCompatActivity() {
     }
 
     fun renderUserData() {
-        findViewById<TextView>(R.id.textview_user_name).text = MainActivity.currentUser?.name as String
+        if (MainActivity.currentUser?.name != null) {
+            findViewById<TextView>(R.id.textview_user_name).text = MainActivity.currentUser?.name as String
+        }
     }
 
     fun registerEvents() {
@@ -56,6 +60,8 @@ class ParksView : AppCompatActivity() {
     }
 
     fun handleErrorParks() {
-        Toast.makeText(MainActivity.instance, "Ops... Ocorreu um erro", Toast.LENGTH_LONG).show();
+        Handler(Looper.getMainLooper()).post {
+            Toast.makeText(MainActivity.instance, "Ops... Ocorreu um erro", Toast.LENGTH_LONG).show();
+        }
     }
 }
