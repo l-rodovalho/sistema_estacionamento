@@ -63,7 +63,9 @@ class LoadingFragment : Fragment() {
     }
 
     fun handleError() {
-        findNavController().navigate(R.id.action_loadingFragment_to_signInFragment)
+        Handler(Looper.getMainLooper()).post {
+            findNavController().navigate(R.id.action_loadingFragment_to_signInFragment)
+        }
     }
 
 

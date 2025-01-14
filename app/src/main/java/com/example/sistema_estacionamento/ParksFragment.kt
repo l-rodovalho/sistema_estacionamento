@@ -69,7 +69,7 @@ class ParksFragment : Fragment() {
     }
 
     fun handleSuccessParks(parks: List<ParkModel>) {
-        //val recyclerView = binding.recyclerView;
+       // val recyclerView = binding.recyclerView;
         //recyclerView.layoutManager = LinearLayoutManager(context);
 
         //recyclerView.adapter = ParkAdapter(parks);
