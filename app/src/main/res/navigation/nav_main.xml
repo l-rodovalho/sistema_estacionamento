@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_parksFragment_to_vehicleFragment"
             app:destination="@id/vehicleFragment" />
+        <action
+            android:id="@+id/action_parksFragment_to_selectVehicleFragment"
+            app:destination="@id/selectVehicleFragment" />
     </fragment>
     <fragment
         android:id="@+id/vehicleFragment"
@@ -51,6 +54,9 @@
         <action
             android:id="@+id/action_vehicleFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_vehicleFragment_to_createVehicleFragment"
+            app:destination="@id/createVehicleFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -62,6 +68,24 @@
             app:destination="@id/signInFragment" />
         <action
             android:id="@+id/action_signUpFragment_to_parksFragment"
+            app:destination="@id/parksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createVehicleFragment"
+        android:name="com.example.sistema_estacionamento.CreateVehicleFragment"
+        android:label="fragment_create_vehicle"
+        tools:layout="@layout/fragment_create_vehicle" >
+        <action
+            android:id="@+id/action_createVehicleFragment_to_vehicleFragment"
+            app:destination="@id/vehicleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectVehicleFragment"
+        android:name="com.example.sistema_estacionamento.SelectVehicleFragment"
+        android:label="fragment_select_vehicle"
+        tools:layout="@layout/fragment_select_vehicle" >
+        <action
+            android:id="@+id/action_selectVehicleFragment_to_parksFragment"
             app:destination="@id/parksFragment" />
     </fragment>
 </navigation>

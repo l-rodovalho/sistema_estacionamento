@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sistemaestacionamento"
         android:usesCleartextTraffic="true"
+        android:windowFullscreen="false"
         tools:targetApi="31">
         <activity
             android:name=".MainActivity"
@@ -23,12 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.VehiclesView" />
-        <activity android:name=".views.SignInView" />
-        <activity android:name=".views.HomeView" />
-        <activity android:name=".views.SignUpView" />
-        <activity android:name=".views.LoadingAuthenticationView" />
-        <activity android:name=".views.ParksView" />
     </application>
 
 

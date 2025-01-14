@@ -17,11 +17,15 @@ class MainActivity : AppCompatActivity() {
         var currentUser: UserModel? = null
         var vehicles: List<VehicleModel> = emptyList();
         var parks: List<ParkModel> = emptyList();
+        var currentPark: ParkModel? = null;
+        var currentPlate: String? = null;
 
         fun reset() {
             currentUser = null;
             vehicles = emptyList();
             parks = emptyList();
+            currentPark = null;
+            currentPlate = null;
         }
 
     }

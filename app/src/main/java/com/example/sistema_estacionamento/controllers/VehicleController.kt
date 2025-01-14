@@ -1,9 +1,7 @@
 package com.example.sistema_estacionamento.controllers
 
-import android.content.Intent
 import android.util.Log
-import androidx.core.content.ContextCompat.startActivity
-import com.example.sistema_estacionamento.MainActivity
+import com.example.sistema_estacionamento.models.ParkModel
 import com.example.sistema_estacionamento.models.VehicleModel
 import com.example.sistema_estacionamento.utils.API
 import okhttp3.Call
@@ -16,25 +14,23 @@ class VehicleController {
 
     companion object {
 
-        fun postVehicle(accesToken: String, plate: String, handleError: (errorMessage: String) -> Unit, handleSuccess: () -> Unit): Boolean {
+        fun create(accessToken: String, plate: String, handleError: (errorMessage: String) -> Unit, handleSuccess: () -> Unit): Boolean {
 
             val payload = """
                 {
-                    "plate": "$plate",
+                    "plate": "$plate"
                 }
             """.trimIndent();
 
-            API.POST("/plate/create-plate", payload, object: Callback {
+            API.POST("/plate/create-plate", payload, object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
-                    handleError("Ocorreu um erro...");
+                    handleError("Ocorreu um erro...")
                 }
-
                 override fun onResponse(call: Call, response: Response) {
                     if (response.isSuccessful) {
                         val response = response.body?.string()
-                        val json = JSONObject(response);
-                        val success = json.getBoolean("success");
-
+                        val json = JSONObject(response)
+                        val success = json.getBoolean("success")
                         if (success) {
                             handleSuccess();
                         } else {
@@ -44,9 +40,10 @@ class VehicleController {
                     }
                     handleError("F");
                 }
-            }, accesToken);
+            }, accessToken)
 
             return false;
         }
+
     }
 }

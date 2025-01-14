@@ -68,7 +68,7 @@ class VehicleFragment : Fragment() {
     }
 
     fun handleGoToNewVehicle() {
-
+        findNavController().navigate(R.id.action_vehicleFragment_to_createVehicleFragment)
     }
 
     fun clearVehicles() {

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,8 +46,8 @@ class ParksFragment : Fragment() {
     }
 
     fun registerEvents() {
-        binding.btnNavigationVehicles.setOnClickListener {handleGoToVehicles()}
         binding.btnParksQuit.setOnClickListener {handleQuit()}
+        binding.btnNavigationVehicles.setOnClickListener {handleGoToVehicles()}
     }
 
     private fun handleQuit() {
@@ -74,15 +75,25 @@ class ParksFragment : Fragment() {
             val recyclerView = binding.recyclerView;
             recyclerView.layoutManager = LinearLayoutManager(context);
 
-            recyclerView.adapter = ParkAdapter(parks);
+            recyclerView.adapter = ParkAdapter(parks, ::handleBuy);
         }
+    }
 
+    fun handleBuy(parkId: String) {
+        var currentPark: ParkModel? = null
+        for (park in MainActivity.parks) {
+            if (parkId == park.id) {
+                currentPark = park;
+            }
+        }
+        if (currentPark != null) {
+            MainActivity.currentPark = currentPark;
+            findNavController().navigate(R.id.action_parksFragment_to_selectVehicleFragment)
+        }
     }
 
     fun handleErrorParks() {
-//        Handler(Looper.getMainLooper()).post {
-//            Toast.makeText(MainActivity.instance, "Ops... Ocorreu um erro", Toast.LENGTH_LONG).show();
-//        }
+
     }
 
 }

@@ -51,6 +51,39 @@ class ParkController {
             }, accessToken);
         }
 
+        fun buy(accessToken: String, parkId: String, plate: String, time: Number, handleError: (errorMessage: String) -> Unit, handleSuccess: () -> Unit): Boolean {
+
+            val payload = """
+                {
+                    "parkId": "$parkId",
+                    "plateId": "$plate",
+                    "timeInSeconds": $time
+                }
+            """.trimIndent();
+
+            API.POST("/parking/buy", payload, object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    handleError("Ocorreu um erro...")
+                }
+                override fun onResponse(call: Call, response: Response) {
+                    if (response.isSuccessful) {
+                        val response = response.body?.string()
+                        val json = JSONObject(response)
+                        val success = json.getBoolean("success")
+                        if (success) {
+                            handleSuccess()
+                        } else {
+                            val message = json.getString("message")
+                            handleError(message)
+                        }
+                    }
+                    handleError("F");
+                }
+            }, accessToken)
+
+            return false;
+        }
+
     }
 
 }
