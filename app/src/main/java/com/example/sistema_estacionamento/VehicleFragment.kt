@@ -1,5 +1,6 @@
 package com.example.sistema_estacionamento
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -49,6 +50,17 @@ class VehicleFragment : Fragment() {
     fun registerEvents() {
         binding.btnNavigationParks.setOnClickListener {handleGoToParks()}
         binding.btnNewVehicle.setOnClickListener {handleGoToNewVehicle()}
+        binding.btnParksQuit.setOnClickListener {handleQuit()}
+    }
+
+    private fun handleQuit() {
+        val sharedPref = MainActivity.instance?.getPreferences(Context.MODE_PRIVATE) ?: return
+        with (sharedPref.edit()) {
+            remove("accessToken")
+        }
+        MainActivity.reset();
+
+        findNavController().navigate(R.id.action_vehicleFragment_to_signInFragment)
     }
 
     fun handleGoToParks() {

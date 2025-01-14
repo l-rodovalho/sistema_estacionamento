@@ -54,8 +54,7 @@ class ParksFragment : Fragment() {
         with (sharedPref.edit()) {
             remove("accessToken")
         }
-        MainActivity.currentUser = null;
-        MainActivity.vehicles = emptyList();
+        MainActivity.reset();
 
         findNavController().navigate(R.id.action_parksFragment_to_signInFragment)
     }
@@ -69,6 +68,8 @@ class ParksFragment : Fragment() {
     }
 
     fun handleSuccessParks(parks: List<ParkModel>) {
+        MainActivity.parks = parks;
+
         Handler(Looper.getMainLooper()).post {
             val recyclerView = binding.recyclerView;
             recyclerView.layoutManager = LinearLayoutManager(context);

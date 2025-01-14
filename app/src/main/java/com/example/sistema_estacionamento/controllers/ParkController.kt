@@ -33,7 +33,11 @@ class ParkController {
                                 val parkObject = parks.getJSONObject(i);
                                 val parkId = parkObject.getString("id");
                                 val parkName = parkObject.getString("name");
-                                parksToReturn = parksToReturn + ParkModel(parkId, parkName);
+                                var owned = true
+                                if (parkObject.isNull("parking")) {
+                                    owned = false;
+                                }
+                                parksToReturn = parksToReturn + ParkModel(parkId, parkName, owned);
                             }
                             handleSuccess(parksToReturn);
                         } else {

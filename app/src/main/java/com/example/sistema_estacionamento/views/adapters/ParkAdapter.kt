@@ -23,7 +23,11 @@ class ParkAdapter (private val parks: List<ParkModel>): RecyclerView.Adapter<Par
     override fun onBindViewHolder(holder: ParkViewHolder, position: Int) {
         val park = parks[position];
         holder.nameTextView.text = park.name;
-        holder.statusTextView.text = "Disponível";
+        if (park.owned) {
+            holder.statusTextView.text = "Disponível";
+        } else {
+            holder.statusTextView.text = "Reservada";
+        }
     }
 
     override fun getItemCount(): Int {
