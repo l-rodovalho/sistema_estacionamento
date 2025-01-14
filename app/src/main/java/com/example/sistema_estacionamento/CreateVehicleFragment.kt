@@ -42,6 +42,12 @@ class CreateVehicleFragment : Fragment() {
     }
 
     fun handleSubmit() {
+        if (getPlate().length == 0) {
+            Handler(Looper.getMainLooper()).post {
+                Toast.makeText(MainActivity.instance, "Insira alguma placa", Toast.LENGTH_LONG)
+            }
+            return;
+        }
         VehicleController.create(MainActivity.currentUser?.accessToken as String, getPlate(), ::handleError, ::handleSuccess)
     }
 
