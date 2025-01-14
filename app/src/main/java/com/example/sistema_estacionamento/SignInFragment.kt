@@ -15,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.sistema_estacionamento.controllers.SignInController
 import com.example.sistema_estacionamento.databinding.FragmentParksBinding
 import com.example.sistema_estacionamento.databinding.FragmentSignInBinding
+import com.example.sistema_estacionamento.models.UserModel
 import com.google.android.material.textfield.TextInputLayout
 import com.google.android.material.textview.MaterialTextView
 
@@ -50,7 +51,9 @@ class SignInFragment : Fragment() {
             }
         binding.btnGoToSignUp
             .setOnClickListener {
-                findNavController().navigate(R.id.action_signInFragment_to_signUpFragment)
+                Handler(Looper.getMainLooper()).post {
+                    findNavController().navigate(R.id.action_signInFragment_to_signUpFragment)
+                }
             }
     }
 
@@ -67,7 +70,11 @@ class SignInFragment : Fragment() {
             apply()
         }
 
-        findNavController().navigate(R.id.action_signInFragment_to_parksFragment)
+        MainActivity.currentUser = UserModel("", "", "", accessToken)
+
+        Handler(Looper.getMainLooper()).post {
+            findNavController().navigate(R.id.action_signInFragment_to_loadingFragment)
+        }
     }
 
 }

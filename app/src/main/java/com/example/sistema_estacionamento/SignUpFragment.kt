@@ -15,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.sistema_estacionamento.controllers.SignUpController
 import com.example.sistema_estacionamento.databinding.FragmentSignInBinding
 import com.example.sistema_estacionamento.databinding.FragmentSignUpBinding
+import com.example.sistema_estacionamento.models.UserModel
 import com.google.android.material.textfield.TextInputLayout
 import com.google.android.material.textview.MaterialTextView
 
@@ -68,6 +69,8 @@ class SignUpFragment : Fragment() {
             putString("accessToken", accessToken)
             apply()
         }
+
+        MainActivity.currentUser = UserModel("", "", "", accessToken)
 
         findNavController().navigate(R.id.action_signUpFragment_to_parksFragment)
     }

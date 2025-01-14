@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_signInFragment_to_parksFragment"
             app:destination="@id/parksFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_loadingFragment"
+            app:destination="@id/loadingFragment" />
     </fragment>
     <fragment
         android:id="@+id/parksFragment"
@@ -69,6 +72,9 @@
         <action
             android:id="@+id/action_signUpFragment_to_parksFragment"
             app:destination="@id/parksFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_loadingFragment"
+            app:destination="@id/loadingFragment" />
     </fragment>
     <fragment
         android:id="@+id/createVehicleFragment"
