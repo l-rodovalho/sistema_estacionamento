@@ -88,7 +88,9 @@ class ParksFragment : Fragment() {
         }
         if (currentPark != null) {
             MainActivity.currentPark = currentPark;
-            findNavController().navigate(R.id.action_parksFragment_to_selectVehicleFragment)
+            Handler(Looper.getMainLooper()).post {
+                findNavController().navigate(R.id.action_parksFragment_to_selectVehicleFragment)
+            }
         }
     }
 

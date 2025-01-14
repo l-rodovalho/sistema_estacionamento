@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sistema_estacionamento.controllers.ParkController
@@ -79,18 +80,16 @@ class SelectVehicleFragment : Fragment() {
     fun handleSuccess() {
         resetData();
         Handler(Looper.getMainLooper()).post {
-            findNavController().navigate(R.id.action_selectVehicleFragment_to_parksFragment)
+            findNavController().popBackStack()
             Toast.makeText(context, "Vaga reservada com sucesso!", Toast.LENGTH_SHORT).show()
         }
     }
 
     fun handleError(message: String) {
         Handler(Looper.getMainLooper()).post {
-            findNavController().navigate(R.id.action_selectVehicleFragment_to_parksFragment)
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+            findNavController().popBackStack()
         }
     }
-
-
 
 }

@@ -72,6 +72,9 @@ class SignUpFragment : Fragment() {
 
         MainActivity.currentUser = UserModel("", "", "", accessToken)
 
-        findNavController().navigate(R.id.action_signUpFragment_to_parksFragment)
+
+        Handler(Looper.getMainLooper()).post {
+            findNavController().navigate(R.id.action_signUpFragment_to_loadingFragment)
+        }
     }
 }
