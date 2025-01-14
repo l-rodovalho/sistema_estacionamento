@@ -72,6 +72,7 @@ class ParkController {
                         val success = json.getBoolean("success")
                         if (success) {
                             handleSuccess()
+                            return
                         } else {
                             val message = json.getString("message")
                             handleError(message)

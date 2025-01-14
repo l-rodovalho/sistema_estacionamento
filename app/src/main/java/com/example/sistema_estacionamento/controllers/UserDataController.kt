@@ -41,6 +41,7 @@ class UserDataController {
                             }
 
                             handleSuccess(UserModel(id, name, email, accessToken), vehicles)
+                            return;
                         } else {
                             handleError()
                         }

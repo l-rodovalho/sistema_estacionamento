@@ -34,6 +34,7 @@ class SignUpController {
                         if (success) {
                             val accessToken = json.getString("accessToken")
                             handleSuccess(accessToken)
+                            return;
                         } else {
                             val message = json.getString("message")
                             handleError(message)

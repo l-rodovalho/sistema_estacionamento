@@ -33,12 +33,13 @@ class VehicleController {
                         val success = json.getBoolean("success")
                         if (success) {
                             handleSuccess();
+                            return;
                         } else {
                             val message = json.getString("message")
                             handleError(message)
                         }
                     }
-                    handleError("F");
+                    handleError("Ocorreu um erro.")
                 }
             }, accessToken)
 

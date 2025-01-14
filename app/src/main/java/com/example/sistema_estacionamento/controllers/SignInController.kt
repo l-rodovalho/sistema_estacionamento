@@ -33,6 +33,7 @@ class SignInController {
                         if (success) {
                             val accessToken = json.getString("accessToken");
                             handleSuccess(accessToken)
+                            return;
                         } else {
                             Log.d("API", response as String)
                             handleError()
