@@ -23,7 +23,7 @@ class SignUpController {
             """.trimIndent();
 
             API.POST("/create-account", payload, object : Callback {
-                override fun onFailure(call: Call, error: IOException) {
+                override fun onFailure(call: Call, e: IOException) {
                     handleError("Ocorreu um erro...")
                 }
                 override fun onResponse(call: Call, response: Response) {
