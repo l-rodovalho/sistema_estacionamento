@@ -69,16 +69,19 @@ class ParksFragment : Fragment() {
     }
 
     fun handleSuccessParks(parks: List<ParkModel>) {
-       // val recyclerView = binding.recyclerView;
-        //recyclerView.layoutManager = LinearLayoutManager(context);
+        Handler(Looper.getMainLooper()).post {
+            val recyclerView = binding.recyclerView;
+            recyclerView.layoutManager = LinearLayoutManager(context);
 
-        //recyclerView.adapter = ParkAdapter(parks);
+            recyclerView.adapter = ParkAdapter(parks);
+        }
+
     }
 
     fun handleErrorParks() {
-        Handler(Looper.getMainLooper()).post {
-            Toast.makeText(MainActivity.instance, "Ops... Ocorreu um erro", Toast.LENGTH_LONG).show();
-        }
+//        Handler(Looper.getMainLooper()).post {
+//            Toast.makeText(MainActivity.instance, "Ops... Ocorreu um erro", Toast.LENGTH_LONG).show();
+//        }
     }
 
 }

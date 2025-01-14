@@ -2,6 +2,8 @@ package com.example.sistema_estacionamento
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sistema_estacionamento.databinding.FragmentParksBinding
 import com.example.sistema_estacionamento.databinding.FragmentVehicleBinding
+import com.example.sistema_estacionamento.views.adapters.ParkAdapter
 import com.example.sistema_estacionamento.views.adapters.VehicleAdapter
 
 class VehicleFragment : Fragment() {
@@ -57,16 +60,20 @@ class VehicleFragment : Fragment() {
     }
 
     fun clearVehicles() {
-//        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView);
-//        recyclerView.layoutManager = LinearLayoutManager(this);
-//        recyclerView.adapter = VehicleAdapter(emptyList());
+        Handler(Looper.getMainLooper()).post {
+            val recyclerView = binding.recyclerView;
+            recyclerView.layoutManager = LinearLayoutManager(context);
+            recyclerView.adapter = VehicleAdapter(emptyList());
+        }
     }
 
     fun renderVehicles() {
         clearVehicles();
-//        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView);
-//        recyclerView.layoutManager = LinearLayoutManager(this);
-//        Log.d("VEHICLES", MainActivity.vehicles.toString());
-//        recyclerView.adapter = VehicleAdapter(MainActivity.vehicles);
+        Handler(Looper.getMainLooper()).post {
+            val recyclerView = binding.recyclerView;
+            recyclerView.layoutManager = LinearLayoutManager(context);
+
+            recyclerView.adapter = VehicleAdapter(MainActivity.vehicles);
+        }
     }
 }
